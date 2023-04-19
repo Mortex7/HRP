@@ -1,0 +1,24 @@
+﻿Make sure this package is installed: Install-Package Microsoft.EntityFrameworkCore.Tools 
+
+Structure of scaffold command is shown below:
+Scaffold-DbContext [-Connection] [-Provider] [-OutputDir] [-Context] [-Schemas] [-Tables] 
+                   [-DataAnnotations] [-Force] [-Project] [-StartupProject] [CommonParameters]
+
+1. Connection – used to provide connection string
+2. Provider – used to provide the Provider info
+3. OutputDir – Generate model in specific folder
+4. Context- provide name of our database context
+5. contextDir - Generate dbcontext in specific folder
+6. tables – generate models for specific tables
+7. DataAnnotations – Generate models with data annotations8.Force – forcedly updating the existing files
+
+
+
+--some examples from different project
+
+Scaffold-DbContext -connection name=PutrConnection Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entities -contextDir DbContext –context PutrDbContext -Tables Pkey_S12,View_S12 -f
+Scaffold-DbContext "Server=[Server];Database=[Database Name];Trsted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -Project "[Project Name]" -Force 
+
+
+--Entity creation
+Scaffold-DbContext -Project HRP.Domain -connection name=HRPConnection Microsoft.EntityFrameworkCore.SqlServer -OutputDir Entities -f
